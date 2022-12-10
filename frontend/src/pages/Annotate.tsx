@@ -17,7 +17,7 @@ export const AnnotationPage = () => {
   const directoryId = params.directoryId;
   const imgRef = useRef(null);
 
-  const [anno, setAnno] = useState<Annotorious>();
+  const [anno, setAnno] = useState<typeof Annotorious>();
   const [tool, setTool] = useState<string>("rect");
 
   const createAnnotationObject = (tags: Array<string>, coords: string): any => {
@@ -42,7 +42,7 @@ export const AnnotationPage = () => {
   };
 
   const addAnnotation = (
-    annotorious: Annotorious,
+    annotorious: typeof Annotorious,
     tags: Array<string>,
     coords: string
   ) => {
@@ -50,7 +50,7 @@ export const AnnotationPage = () => {
     annotorious.addAnnotation(createAnnotationObject(tags, coords));
   };
 
-  const getAndAddAnnotations = async (annotorious: Annotorious) => {
+  const getAndAddAnnotations = async (annotorious: typeof Annotorious) => {
     const resp = await axios.get(
       `http://localhost:8000/images/${imageId}/annotations`
     );

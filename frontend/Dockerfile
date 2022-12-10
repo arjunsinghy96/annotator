@@ -1,8 +1,11 @@
-FROM node
+FROM node:lts-alpine as build-stage
 WORKDIR /app
 COPY package.json .
 RUN npm i
 COPY . .
-## EXPOSE [Port you mentioned in the vite.config file]
-EXPOSE 5173
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "build"]
+
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
