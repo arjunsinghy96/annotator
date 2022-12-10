@@ -18,6 +18,7 @@ services:
   mongo:
     image: mongo
     restart: always
+    hostname: annotator_db
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: mypassword
