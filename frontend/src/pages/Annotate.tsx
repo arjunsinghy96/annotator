@@ -69,7 +69,7 @@ export const AnnotationPage = () => {
       annotorious = new Annotorious({
         image: imgRef.current,
         widgets: [
-          { widget: "TAG", vocabulary: ["car", "bus", "autorikshaw", "bike"] },
+          { widget: "TAG", vocabulary: ["car", "bus", "autorickshaw", "bike"] },
         ],
       });
       setAnno(annotorious);
