@@ -12,7 +12,7 @@ To build the application run `docker-compose build` from project root. This will
 
 Run `docker-compose up` from project root to start the application. This will start 1 backend, 1 frontend and 1 mongodb database container.
 
-Visit `http://localhost/` to start using the app.
+Visit `http://localhost/` to start using the app. Make sure you do not have any other service running on port `80`.
 
 ### Application features.
 
